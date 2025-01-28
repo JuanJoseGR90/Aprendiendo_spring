@@ -1,0 +1,8 @@
+- Recordar uso de EntityResponse usado como tipo de devolución de la función. Por ejemplo:
+
+      @PostMapping("/crear2")
+      public ResponseEntity<User2> crear2(@RequestBody User2 user2) {
+          user2.setId(users.size()+1);
+          users.add(user2);
+          return new ResponseEntity<>(user2, HttpStatus.CREATED);
+      }
