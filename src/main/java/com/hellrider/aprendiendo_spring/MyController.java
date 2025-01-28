@@ -1,15 +1,15 @@
 package com.hellrider.aprendiendo_spring;
 
-import com.hellrider.aprendiendo_spring.otros.User2;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@org.springframework.stereotype.Controller
+@Controller
 @RequestMapping("/app")
-public class Controller {
+public class MyController {
 
     private final List<User> users = new ArrayList<>();
 
