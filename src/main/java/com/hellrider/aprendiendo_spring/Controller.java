@@ -36,7 +36,7 @@ public class Controller {
 
     @ResponseBody
     @PostMapping("/crear")
-    public void addUser(@RequestParam String username, @RequestParam String password) {
+    public void addUser(@RequestParam String username, @RequestParam(required = false) String password) {
         User user = new User(username, password);
         users.add(user);
     }
