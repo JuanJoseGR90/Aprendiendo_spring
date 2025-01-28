@@ -25,7 +25,7 @@ public class Controller2 {
         return users;
     }
 
-    @GetMapping("/create")
+    @PostMapping("/create")
     @ResponseBody
     public String createUser(@RequestBody User user) {
         users.add(user);
