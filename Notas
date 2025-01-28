@@ -6,3 +6,7 @@
           users.add(user2);
           return new ResponseEntity<>(user2, HttpStatus.CREATED);
       }
+
+- Recordar cómo crear una función que reciba los parámetros a través de la url, y cómo enviarlos. Por ejemplo:
+
+    http://localhost:8080/app/crear?username=hellrider1990&password=klajadhflkah
