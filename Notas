@@ -1,4 +1,4 @@
-- Recordar uso de EntityResponse usado como tipo de devolución de la función. Por ejemplo:
+- Recordar uso de ResponseEntity usado como tipo de devolución de la función. Por ejemplo:
 
       @PostMapping("/crear2")
       public ResponseEntity<User2> crear2(@RequestBody User2 user2) {
