@@ -30,7 +30,7 @@ public class MyController {
     /**
      * Endpoint de prueba básico
      * @return Saludo en texto plano
-     * @GET http://localhost:8080/app/saludo
+     * @GET <a href="http://localhost:8080/app/saludo">http://localhost:8080/app/saludo</a>
      */
     @GetMapping("/saludo")
     @ResponseBody
@@ -41,7 +41,7 @@ public class MyController {
     /**
      * Obtiene lista predefinida de usuarios de prueba
      * @return Lista estática de 2 usuarios
-     * @GET http://localhost:8080/app/user
+     * @GET <a href="http://localhost:8080/app/user">http://localhost:8080/app/user</a>
      */
     @GetMapping("/user")
     @ResponseBody
@@ -55,7 +55,7 @@ public class MyController {
     /**
      * Obtiene todos los usuarios almacenados en memoria
      * @return Lista completa de usuarios
-     * @GET http://localhost:8080/app/users
+     * @GET <a href="http://localhost:8080/app/users">http://localhost:8080/app/users</a>
      */
     @GetMapping("/users")
     @ResponseBody
@@ -66,7 +66,7 @@ public class MyController {
     /**
      * Versión alternativa para obtener usuarios con ResponseEntity
      * @return Respuesta HTTP con lista de usuarios
-     * @GET http://localhost:8080/app/users2
+     * @GET <a href="http://localhost:8080/app/users2">http://localhost:8080/app/users2</a>
      */
     @GetMapping("/users2")
     public ResponseEntity<List<User>> verUsuarios() {
@@ -77,7 +77,7 @@ public class MyController {
      * Obtiene un usuario específico por su ID
      * @param id Número de identificación (comienza en 1)
      * @return Usuario correspondiente al ID
-     * @GET http://localhost:8080/app/user/1
+     * @GET <a href="http://localhost:8080/app/user/1">http://localhost:8080/app/user/1</a>
      */
     @GetMapping("/user/{id}")
     @ResponseBody
@@ -89,8 +89,8 @@ public class MyController {
      * Crea un nuevo usuario recibiendo datos en formato JSON
      * @param user Objeto User en el cuerpo de la petición
      * @return Usuario creado con ID asignado
-     * @POST http://localhost:8080/app/crear
-     * @Example curl -X POST -H "Content-Type: application/json" -d '{"username":"test","password":"pass"}' http://localhost:8080/app/crear
+     * @POST <a href="http://localhost:8080/app/crear">http://localhost:8080/app/crear</a>
+     * @Example curl -X POST -H "Content-Type: application/json" -d '{"username":"test","password":"pass"}' <a href="http://localhost:8080/app/crear">http://localhost:8080/app/crear</a>
      */
     @PostMapping("/crear")
     @ResponseBody
@@ -104,7 +104,7 @@ public class MyController {
      * Crea usuario usando parámetros de formulario
      * @param username Nombre de usuario (requerido)
      * @param password Contraseña (opcional)
-     * @POST http://localhost:8080/app/crear2?username=test&password=123
+     * @POST <a href="http://localhost:8080/app/crear2?username=test&password=123">http://localhost:8080/app/crear2?username=test&password=123</a>
      */
     @PostMapping("/crear2")
     @ResponseBody
@@ -119,7 +119,7 @@ public class MyController {
      * @param id ID del usuario a modificar
      * @param actualizarUser Nuevos datos del usuario
      * @return Usuario modificado
-     * @PUT http://localhost:8080/app/modificar/1
+     * @PUT <a href="http://localhost:8080/app/modificar/1">http://localhost:8080/app/modificar/1</a>
      */
     @PutMapping("/modificar/{id}")
     @ResponseBody
