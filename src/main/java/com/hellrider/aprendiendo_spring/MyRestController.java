@@ -43,7 +43,7 @@ public class MyRestController {
      * @param nombre Nombre del usuario a saludar
      * @return Mensaje de saludo personalizado
      *
-     * @Example GET <a href="http://localhost:8080/saludo?nombre=Ana">http://localhost:8080/saludo?nombre=Ana</a>
+     * @Example GET <a href="http://localhost:8080/saludo?nombre=Ana">http://localhost:8080/saludo?nombre=Hellrider</a>
      */
     @GetMapping("/saludo")
     public String saludo(@RequestParam String nombre) {
