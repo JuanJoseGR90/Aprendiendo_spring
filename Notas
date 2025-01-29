@@ -1,4 +1,13 @@
-- Recordar uso de ResponseEntity usado como tipo de devolución de la función. Por ejemplo:
+- @Controller se utiliza para devolver una referencia a un html para ser renderizada directamente en el servidor, aunque
+también se puede adaptar para devolver datos en crudo agregando a la función en cuestión la anotación @ResponseBody. Lo
+que permite crear una clase hibrida al poder devolver tanto vistas como datos en crudo.
+
+- @RestController se utiliza para devolver datos crudo, y a diferencia de @Controller no hay que utilizar la etiqueta
+@ResponseBody en las funciones. Todas las funciones de una clase con esta etiqueta devuelven el tipo de parámetro indicado
+en la firma de la función.
+
+- Recordar que ResponseEntity se usa como sustituto de la etiqueta @ResponseBody cuando la clase está anotada con @Controller
+, en vez de @RestController. Por ejemplo:
 
       @PostMapping("/crear2")
       public ResponseEntity<User2> crear2(@RequestBody User2 user2) {
@@ -9,4 +18,4 @@
 
 - Recordar cómo crear una función que reciba los parámetros a través de la url, y cómo enviarlos. Por ejemplo:
 
-    http://localhost:8080/app/crear?username=hellrider1990&password=klajadhflkah
+    http://localhost:8080/app/crear?username=hellrider&password=klajadhflkah
