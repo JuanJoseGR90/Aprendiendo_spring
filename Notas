@@ -6,8 +6,9 @@ que permite crear una clase hibrida al poder devolver tanto vistas como datos en
 @ResponseBody en las funciones. Todas las funciones de una clase con esta etiqueta devuelven el tipo de parámetro indicado
 en la firma de la función.
 
-- Recordar que ResponseEntity se usa como sustituto de la etiqueta @ResponseBody cuando la clase está anotada con @Controller
-, en vez de @RestController. Por ejemplo:
+- Recordar que ResponseEntity se usa como sustituto de la etiqueta @ResponseBody cuando la clase está anotada con @Controller, en vez de @RestController.
+
+    Por ejemplo:
 
       @PostMapping("/crear2")
       public ResponseEntity<User2> crear2(@RequestBody User2 user2) {
