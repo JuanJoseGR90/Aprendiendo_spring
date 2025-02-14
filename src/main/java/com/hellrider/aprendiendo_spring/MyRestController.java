@@ -1,5 +1,6 @@
 package com.hellrider.aprendiendo_spring;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ import java.util.List;
  * </ul>
  */
 @RestController
+@RequestMapping("/rest")
 public class MyRestController {
 
     private final ServicioSaludo servicioSaludo;
@@ -97,7 +99,8 @@ public class MyRestController {
      * POST <a href="http://localhost:8080/api/usuarios">http://localhost:8080/api/usuarios</a>
      * Body: {"username":"nuevoUsuario", "password":"contraseñaSegura"}
      */
-    @PostMapping
+    @PostMapping("/crear")
+    @ResponseStatus(HttpStatus.CREATED)
     public User crearUsuario(@RequestBody User usuario) {
         usuario.setId(users.size() + 1);
         users.add(usuario);
