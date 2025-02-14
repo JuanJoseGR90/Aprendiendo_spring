@@ -1,7 +1,10 @@
 package com.hellrider.aprendiendo_spring;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +72,7 @@ public class MyRestController {
      *
      * @Example GET <a href="http://localhost:8080/api/usuarios">http://localhost:8080/api/usuarios</a>
      */
-    @GetMapping
+    @GetMapping("/usuarios")
     public List<User> getUsers() {
         return users;
     }
@@ -102,6 +105,25 @@ public class MyRestController {
     @PostMapping("/crear")
     @ResponseStatus(HttpStatus.CREATED)
     public User crearUsuario(@RequestBody User usuario) {
+        usuario.setId(users.size() + 1);
+        users.add(usuario);
+        return usuario;
+    }
+
+    /**
+     * Crea un nuevo usuario con validación de campos obligatorios
+     * @param usuario Objeto User en formato JSON (debe incluir username y password no vacíos)
+     * @return Usuario creado con ID generado y status HTTP 201
+     * @Example
+     * POST http://localhost:8080/api/usuarios
+     * Body: {"username":"user1", "password":"pass123"}
+     */
+    @PostMapping("/crear2")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User crearUsuario2(@Validated @RequestBody User usuario) {
+        if(users.stream().anyMatch(u -> u.getUsername().equals(usuario.getUsername()))) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Username ya existe");
+        }
         usuario.setId(users.size() + 1);
         users.add(usuario);
         return usuario;
