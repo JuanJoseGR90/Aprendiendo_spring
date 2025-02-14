@@ -51,6 +51,17 @@ public class MyRestController {
     }
 
     /**
+     * Genera un saludo personalizado
+     * @return Mensaje de saludo personalizado
+     *
+     * @Example GET <a href="http://localhost:8080/saludo?nombre=Ana">http://localhost:8080/saludo2</a>
+     */
+    @GetMapping("/saludo2")
+    public String saludo2() {
+        return servicioSaludo.saludo("JJ");
+    }
+
+    /**
      * Obtiene todos los usuarios registrados
      * @return Lista completa de usuarios en formato JSON
      *
