@@ -14,7 +14,7 @@ package com.hellrider.aprendiendo_spring;
  */
 public class User {
 
-    private int id;
+    private Long id;
     private String username;
     private String password;
 
@@ -31,7 +31,7 @@ public class User {
     /**
      * @return ID numérico auto-generado
      */
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -53,7 +53,7 @@ public class User {
      * Establece el ID (usado internamente por el controlador)
      * @param id Nuevo identificador numérico
      */
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

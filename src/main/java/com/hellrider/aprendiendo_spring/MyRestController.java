@@ -105,7 +105,7 @@ public class MyRestController {
     @PostMapping("/crear")
     @ResponseStatus(HttpStatus.CREATED)
     public User crearUsuario(@RequestBody User usuario) {
-        usuario.setId(users.size() + 1);
+        usuario.setId(users.size() + 1L);
         users.add(usuario);
         return usuario;
     }
@@ -124,7 +124,7 @@ public class MyRestController {
         if(users.stream().anyMatch(u -> u.getUsername().equals(usuario.getUsername()))) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Username ya existe");
         }
-        usuario.setId(users.size() + 1);
+        usuario.setId(users.size() + 1L);
         users.add(usuario);
         return usuario;
     }
