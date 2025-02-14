@@ -95,7 +95,7 @@ public class MyController {
     @PostMapping("/crear")
     @ResponseBody
     public User createUser(@RequestBody User user) {
-        user.setId(USERS.size() + 1);
+        user.setId(USERS.size() + 1L);
         USERS.add(user);
         return user;
     }
