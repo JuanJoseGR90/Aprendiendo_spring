@@ -32,5 +32,5 @@ build/
 ### VS Code ###
 .vscode/
 
-# Ignora el directorio 'otros' y su contenido
-src/main/java/com/hellrider/aprendiendo_spring/otros/
+### Excluir todos los archivos .properties ###
+/configs/spring-apps/*.properties
