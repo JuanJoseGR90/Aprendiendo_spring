@@ -125,8 +125,8 @@ public class MyController {
     @ResponseBody
     public User actualizarUsuario(@PathVariable int id, @RequestBody User actualizarUser) {
         User actualizar = obtenerUsuario(id);
-        actualizar.setUsername(actualizarUser.getUsername());
-        actualizar.setPassword(actualizarUser.getPassword());
+        actualizar.setName(actualizarUser.getName());
+        actualizar.setEmail(actualizarUser.getEmail());
         return obtenerUsuario(id);
     }
 }

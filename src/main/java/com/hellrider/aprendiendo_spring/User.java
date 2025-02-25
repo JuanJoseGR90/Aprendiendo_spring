@@ -1,5 +1,7 @@
 package com.hellrider.aprendiendo_spring;
 
+import jakarta.persistence.*;
+
 /**
  * Modelo que representa un usuario en el sistema.
  * <p>
@@ -12,20 +14,28 @@ package com.hellrider.aprendiendo_spring;
  *   <li>password - Contraseña en texto plano (no seguro para producción)</li>
  * </ul>
  */
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private String password;
+
+    private String name;
+    private String email;
+
+    // Constructor vacío requerido por JPA.
+    public User() {}
 
     /**
      * Constructor para creación de nuevos usuarios
-     * @param username Nombre de usuario (requerido)
-     * @param password Contraseña (sin encriptar)
+     * @param name Nombre de usuario (requerido)
+     * @param email Contraseña (sin encriptar)
      */
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
     }
 
     /**
@@ -38,15 +48,15 @@ public class User {
     /**
      * @return Nombre de usuario registrado
      */
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
     /**
      * @return Contraseña en texto plano
      */
-    public String getPassword() {
-        return password;
+    public String getEmail() {
+        return email;
     }
 
     /**
@@ -61,15 +71,15 @@ public class User {
      * Actualiza el nombre de usuario
      * @param username Nuevo nombre de usuario
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String username) {
+        this.name = username;
     }
 
     /**
      * Cambia la contraseña del usuario
      * @param password Nueva contraseña en texto plano
      */
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEmail(String password) {
+        this.email = password;
     }
 }

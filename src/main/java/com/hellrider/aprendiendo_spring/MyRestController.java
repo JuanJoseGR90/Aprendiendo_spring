@@ -120,7 +120,7 @@ public class MyRestController {
     @PostMapping("/crear2")
     @ResponseStatus(HttpStatus.CREATED)
     public User crearUsuario2(@Validated @RequestBody User usuario) {
-        if(users.stream().anyMatch(u -> u.getUsername().equals(usuario.getUsername()))) {
+        if(users.stream().anyMatch(u -> u.getName().equals(usuario.getName()))) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Username ya existe");
         }
         usuario.setId(users.size() + 1L);
@@ -139,7 +139,7 @@ public class MyRestController {
     @PostMapping("/crear3")
     @ResponseStatus(HttpStatus.CREATED)
     public User crearUsuario3(@Validated @RequestBody User usuario) {
-        if(users.stream().anyMatch(u -> u.getUsername().equals(usuario.getUsername()))) {
+        if(users.stream().anyMatch(u -> u.getName().equals(usuario.getName()))) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Username ya existe");
         }
         usuario.setId(users.size() + 1L);
@@ -160,8 +160,8 @@ public class MyRestController {
     @PutMapping("/{id}")
     public User actualizarUsuario(@PathVariable int id, @RequestBody User usuarioActualizado) {
         User usuarioExistente = getUser(id);
-        usuarioExistente.setUsername(usuarioActualizado.getUsername());
-        usuarioExistente.setPassword(usuarioActualizado.getPassword());
+        usuarioExistente.setName(usuarioActualizado.getName());
+        usuarioExistente.setEmail(usuarioActualizado.getEmail());
         return usuarioExistente;
     }
 
@@ -176,7 +176,7 @@ public class MyRestController {
     @PatchMapping("/{id}")
     public User actualizarNombre(@PathVariable int id, @RequestParam String username) {
         User usuario = getUser(id);
-        usuario.setUsername(username);
+        usuario.setName(username);
         return usuario;
     }
 

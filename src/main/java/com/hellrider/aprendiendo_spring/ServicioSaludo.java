@@ -1,5 +1,6 @@
 package com.hellrider.aprendiendo_spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,6 +20,17 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ServicioSaludo {
+
+    public ServicioSaludo() {
+
+    }
+
+    @Autowired
+    private UserRepository userRepository;
+
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
 
     /**
      * Genera un mensaje de saludo personalizado
